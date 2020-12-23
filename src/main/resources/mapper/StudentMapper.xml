@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.maven.springbootlearn.mybatis_demo.mapper.IStudentMapper">
+    <select id="selectStudent"  resultType="Student">
+	        select id,name,sex,registerdate registerDate from t_student 
+        <where>
+            <if test="id!=null and id!=''">
+				id=#{id}
+			</if>
+            <if test="name!=null and name!=''">
+				and name=#{name}
+			</if>
+            <if test="sex!=null and sex!=''">
+				and sex=#{sex}
+			</if>
+            <if test="registerDate!=null and registerDate!=''">
+				and register=#{registerDate}
+			</if>
+        </where>
+    </select>
+    <insert id="insertStudent"  parameterType="Student"  useGeneratedKeys="true" keyProperty="id" >
+	    insert into t_student
+		(name,sex,registerdate)
+		values
+		(#{name},#{sex},#{registerDate})
+    </insert>
+</mapper>

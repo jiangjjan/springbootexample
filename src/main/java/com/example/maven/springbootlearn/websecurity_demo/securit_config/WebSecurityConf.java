@@ -1,4 +1,4 @@
-package com.example.maven.springbootlearn.websecurity_demo;
+package com.example.maven.springbootlearn.websecurity_demo.securit_config;
 
 import javax.sql.DataSource;
 

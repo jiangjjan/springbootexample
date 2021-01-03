@@ -1,0 +1,11 @@
+POST http://127.0.0.1:8080/mybatis/student
+content-type: application/json
+
+{
+    "name": "sample",
+    "sex": true,
+    "registerDate": "2020-1-14"
+}
+
+###
+GET http://127.0.0.1:8080/mybatis/student/jiangjian 

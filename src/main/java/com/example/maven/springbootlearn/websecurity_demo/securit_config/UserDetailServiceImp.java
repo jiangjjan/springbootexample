@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 /**
- * 实现自己的登录机制
+ * 实现自己的登录机制 重写loadUserByname
  *      get [user data] ---from---->redis
  *      if fail   ---from--->  database
  * 

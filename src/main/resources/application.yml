@@ -3,30 +3,27 @@ spring:
     user:
       password: 123456
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/springdemo?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8 
+    url: jdbc:mysql://127.0.0.1:3306/learn?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8 
 # spring.datasource.url=jdbc:mysql://127.0.0.1:3306/springdemo?characterEncoding=UTF-8
     username: root
-    password: admin
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      auto-commit: true
-      #空闲连接超时时长
-      idle-timeout: 60000
-      #连接超时时长
-      connection-timeout: 60000
-      #最大生命周期，0不过期
-      max-lifetime: 0
-      #最小空闲连接数
-      minimum-idle: 10
-      #最大连接数量
-      maximum-pool-size: 10
+    initialization-mode:  always
+    schema:
+    - classpath:db/schema.sql
+    # data:
+    # - 
   profiles:
     active: windows
-# spring.datasource.driver-class-name=com.mysql.jdbc.Driver
   thymeleaf:
     cache: false
 server:
-  port: 8080
+  port: 80
+  # ssl:
+  #  key-store-type: JKS
+  #  key-alias: tomcat
+  #  key-store: classpath:ssl/test.keystore
+  #  key-store-password: changeit
 #debug 模式
 debug: false
 logging:
@@ -37,14 +34,12 @@ logging:
   # pattern:
   #   file: '%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger :: %msg%n'
 #日志格式
-doubledb:
-  enable: false
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.maven.springbootlearn.mybatis_demo.entity.**
 management:
-  server:
-    port: 9090
+  # server:
+  #   port: 9090
   endpoints:
     web:
       exposure:
@@ -59,7 +54,7 @@ springdoc:
 #保存文件，注意file和path同时存在时，file生效，保存在根目录下，可以在file中设置路径如/logs/log/test.log 
 logging:
   file:
-    name: D:/log/springbootLog.log
+    name: E:/log/springbootLog.log
 spring:
   profiles: windows
   redis: 

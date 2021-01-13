@@ -20,7 +20,7 @@ public class RedisController {
     @Autowired
     QueryStudentService service;
 
-
+ 
     @GetMapping("student")
     public Object getStudent() {
        return  service.getStudentS();
